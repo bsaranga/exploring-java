@@ -9,5 +9,7 @@ public class App
 
         mySuperClass.Interact();
         myClass.Interact();
+
+        myClass.Interact("YO YO YO!");
     }
 }
