@@ -10,5 +10,8 @@ public class App
         items.forEach(item -> {
             System.out.println(item);
         });
+        
+        var someInteger = 5;
+        System.out.println(((Object)someInteger).getClass().getSimpleName());
     }
 }

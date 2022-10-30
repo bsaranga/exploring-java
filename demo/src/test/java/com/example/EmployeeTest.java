@@ -14,22 +14,22 @@ public class EmployeeTest {
 
     @Test(expected = InvalidEmployeeNumber.class)
     public void shouldThrowInvalidEmployeeNumberExceptionIfLessThanOrEqualToZero() throws Exception {
-        var employee = new Employee(0, "John", "Doe", 18);
+        new Employee(0, "John", "Doe", 18);
     }
 
     @Test(expected = InvalidFirstNameException.class)
     public void shouldThrowInvalidFirstNameExceptionIfBlankFirstNameIsUsed() throws Exception {
-        var employee = new Employee(1234, "", "Doe", 18);
+        new Employee(1234, "", "Doe", 18);
     }
 
     @Test(expected = InvalidLastNameException.class)
     public void shouldThrowInvalidLastNameExceptionIfBlankLastNameIsUsed() throws Exception {
-        var employee = new Employee(1234, "John", "", 18);
+        new Employee(1234, "John", "", 18);
     }
 
     @Test(expected = InvalidAgeException.class)
     public void shouldThrowInvalidAgeExceptionIfAgeIsLessThan18() throws Exception {
-        var employee = new Employee(1234, "John", "Doe", 17);
+        new Employee(1234, "John", "Doe", 17);
     }
 
     @Test()
@@ -55,7 +55,8 @@ public class EmployeeTest {
         var employee = new Employee(1234, "John", "Doe", 19);
         
         assertEquals(19, employee.getAge());
-        var condition = ((Object) employee.getAge()).getClass().getName() == "Integer";
-        assertTrue("Age is not a Integer type", condition);
+        var age = employee.getAge();
+        var typeName = ((Object) age).getClass().getSimpleName();
+        assertTrue("Age is not a Integer type", typeName.equalsIgnoreCase("Integer"));
     }
 }
