@@ -1,4 +1,4 @@
-package io.learntree.app;
+package io.conference;
 
 public class App 
 {
