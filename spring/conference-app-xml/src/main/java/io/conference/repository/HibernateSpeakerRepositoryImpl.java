@@ -5,7 +5,7 @@ import java.util.List;
 
 import io.conference.model.Speaker;
 
-public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
+public class HibernateSpeakerRepositoryImpl implements ISpeakerRepository {
     
     public List<Speaker> findAll() {
         List<Speaker> speakers = new ArrayList<Speaker>();

@@ -5,11 +5,12 @@ import java.util.List;
 import io.conference.model.Speaker;
 import io.conference.repository.ISpeakerRepository;
 
-public class SpeakerServiceImpl implements ISpeakerService {
+public class SpeakerServiceImpl2 implements ISpeakerService {
     
     private ISpeakerRepository repository;
 
     public void setSpeakerRepository(ISpeakerRepository repository) {
+        System.out.println("In the second speaker service implementation...");
         this.repository = repository;
     }
 

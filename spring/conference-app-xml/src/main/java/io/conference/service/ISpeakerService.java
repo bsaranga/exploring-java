@@ -4,6 +4,6 @@ import java.util.List;
 
 import io.conference.model.Speaker;
 
-public interface SpeakerService {
+public interface ISpeakerService {
     List<Speaker> findAll();
 }
