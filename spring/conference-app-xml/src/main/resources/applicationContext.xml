@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean name="speakerRepository" class="io.conference.repository.HibernateSpeakerRepositoryImpl"/>
     <bean name="speakerService" class="io.conference.service.SpeakerServiceImpl">
-        <property name="speakerRepository" ref="speakerRepository"/>
+        <constructor-arg index="0" ref="speakerRepository"/>
     </bean>
     <bean name="speakerService2" class="io.conference.service.SpeakerServiceImpl2">
         <property name="speakerRepository" ref="speakerRepository"/>
