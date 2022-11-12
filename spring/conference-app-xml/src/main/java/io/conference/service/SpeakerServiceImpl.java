@@ -1,7 +1,6 @@
 package io.conference.service;
 
 import java.util.List;
-
 import io.conference.model.Speaker;
 import io.conference.repository.ISpeakerRepository;
 

@@ -1,6 +1,9 @@
 package io.conference.service;
 
 import java.util.List;
+
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -32,5 +35,10 @@ public class SpeakerServiceImpl implements ISpeakerService {
 
     public List<Speaker> findAll() {
         return repository.findAll();    
+    }
+
+    @PostConstruct
+    private void initialize() {
+        System.out.println("We're called after the constructors...");
     }
 }
