@@ -21,6 +21,7 @@ public class SpeakerServiceImpl implements ISpeakerService {
     @Autowired
     public SpeakerServiceImpl(ISpeakerRepository speakerRepository) {
         repository = speakerRepository;
+        System.out.println(repository.findAll().get(0).getFirstName());
         System.out.println("SpearkerServiceImp repository constructor");
     }
 

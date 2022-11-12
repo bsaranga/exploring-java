@@ -1,15 +1,18 @@
 package io.conference;
 
+/*
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import io.conference.repository.HibernateSpeakerRepositoryImpl;
 import io.conference.repository.ISpeakerRepository;
 import io.conference.service.ISpeakerService;
 import io.conference.service.SpeakerServiceImpl;
+*/
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan({"io.conference"})
