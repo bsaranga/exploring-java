@@ -13,6 +13,7 @@ public class App
         var MmaCoach = context.getBean("mma", ICoach.class);
 
         System.out.println(MmaCoach.getDailyRoutine());
+        System.out.println(MmaCoach.getDailyFortune());
         context.close();
     }
 }

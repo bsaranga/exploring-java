@@ -6,6 +6,16 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="jiujitsu" class="demo.dependencyinjection.classes.JiuJitsuCoach"></bean>
-    <bean id="mma" class="demo.dependencyinjection.classes.MmaCoach"></bean>
+    
+    <bean id="myFortune" 
+          class="demo.dependencyinjection.services.HappyFortuneService">
+    </bean>
+    
+    <bean id="jiujitsu" class="demo.dependencyinjection.classes.JiuJitsuCoach">
+      <constructor-arg ref="myFortune"/>
+    </bean>
+
+    <bean id="mma" class="demo.dependencyinjection.classes.MmaCoach">
+      <constructor-arg ref="myFortune"/>
+    </bean>
 </beans>
