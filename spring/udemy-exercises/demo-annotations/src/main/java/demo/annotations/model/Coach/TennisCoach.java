@@ -9,7 +9,7 @@ public class TennisCoach implements ICoach {
 
     private IFortuneService fortuneService;
 
-    @Autowired
+    @Autowired // Autowired annotation is optional since Spring 4.3
     public TennisCoach(IFortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
