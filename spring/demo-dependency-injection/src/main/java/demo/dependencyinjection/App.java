@@ -1,7 +1,5 @@
 package demo.dependencyinjection;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import demo.dependencyinjection.interfaces.ICoach;
 
 public class App 
@@ -10,10 +8,12 @@ public class App
     {
         var context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        var MmaCoach = context.getBean("mma", ICoach.class);
+        var mmaCoach = context.getBean("mma", ICoach.class);
+        var crickCoach = context.getBean("cricket", ICoach.class);
 
-        System.out.println(MmaCoach.getDailyRoutine());
-        System.out.println(MmaCoach.getDailyFortune());
+        System.out.println(mmaCoach.getDailyRoutine());
+        System.out.println(String.format("Mma coach: %s", mmaCoach.getDailyFortune()));
+        System.out.println(String.format("Cricket coach: %s", crickCoach.getDailyFortune()));
         context.close();
     }
 }

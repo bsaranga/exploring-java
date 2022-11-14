@@ -1,4 +1,4 @@
-package demo.dependencyinjection.classes;
+package demo.dependencyinjection.implementations;
 
 import demo.dependencyinjection.interfaces.ICoach;
 import demo.dependencyinjection.services.IFortuneService;

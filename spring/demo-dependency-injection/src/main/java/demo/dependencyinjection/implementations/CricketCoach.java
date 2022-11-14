@@ -1,24 +1,24 @@
-package demo.dependencyinjection.classes;
+package demo.dependencyinjection.implementations;
 
 import demo.dependencyinjection.interfaces.ICoach;
 import demo.dependencyinjection.services.IFortuneService;
 
-public class MmaCoach implements ICoach {
+public class CricketCoach implements ICoach {
 
     private IFortuneService fortuneService;
 
-    public MmaCoach(IFortuneService fortuneService) {
+    public void setFortuneService(IFortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
-    
+
     @Override
     public String getDailyRoutine() {
-        return "Core workouts 45 mins [extended]";
+        return "Daily match practice 50 mins";
     }
 
     @Override
     public String getDailyFortune() {
-        return fortuneService.getFortune();
+        return this.fortuneService.getFortune();
     }
     
 }

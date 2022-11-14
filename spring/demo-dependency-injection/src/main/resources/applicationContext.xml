@@ -7,15 +7,22 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <bean id="myFortune" 
+    <bean id="myFortuneService" 
           class="demo.dependencyinjection.services.HappyFortuneService">
     </bean>
-    
-    <bean id="jiujitsu" class="demo.dependencyinjection.classes.JiuJitsuCoach">
-      <constructor-arg ref="myFortune"/>
+
+    <bean id="jiujitsu" 
+          class="demo.dependencyinjection.implementations.JiuJitsuCoach">
+      <constructor-arg ref="myFortuneService"/>
     </bean>
 
-    <bean id="mma" class="demo.dependencyinjection.classes.MmaCoach">
-      <constructor-arg ref="myFortune"/>
+    <bean id="mma" 
+          class="demo.dependencyinjection.implementations.MmaCoach">
+      <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+    <bean id="cricket"
+          class="demo.dependencyinjection.implementations.CricketCoach">
+      <property name="fortuneService" ref="myFortuneService"></property>
     </bean>
 </beans>
