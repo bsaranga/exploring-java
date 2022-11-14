@@ -10,12 +10,19 @@ public class App
         var context = new ClassPathXmlApplicationContext("applicationContext.xml");
         var tennisCoach = context.getBean("tennisCoach", ICoach.class);
 
+        System.out.println("...Tennis Coach...");
         System.out.println(tennisCoach.getDailyWorkout());
         System.out.println(tennisCoach.getDailyFortune());
         System.out.println("");
 
+        System.out.println("...Cricket Coach...");
         var cricketCoach = context.getBean("cricketCoach", ICoach.class);
         System.out.println(cricketCoach.getDailyFortune());
+        System.out.println("");
+
+        System.out.println("...KungFu Coach...");
+        var kungfuCoach = context.getBean("kungFuCoach", ICoach.class);
+        System.out.println(kungfuCoach.getDailyFortune());
         context.close();
     }
 }
