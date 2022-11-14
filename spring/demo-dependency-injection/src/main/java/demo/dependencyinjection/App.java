@@ -19,6 +19,7 @@ public class App
         System.out.println(String.format("Cricket coach: %s", crickCoach.getDailyFortune()));
         System.out.println("");
         System.out.println(String.format("Cricket coach's team: %s, and email addr: %s", crickCoach.getTeam(), crickCoach.getEmailAddress()));
+        
         context.close();
     }
 }
