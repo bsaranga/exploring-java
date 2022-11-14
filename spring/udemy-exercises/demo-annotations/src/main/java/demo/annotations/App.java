@@ -12,6 +12,10 @@ public class App
 
         System.out.println(tennisCoach.getDailyWorkout());
         System.out.println(tennisCoach.getDailyFortune());
+        System.out.println("");
+
+        var cricketCoach = context.getBean("cricketCoach", ICoach.class);
+        System.out.println(cricketCoach.getDailyFortune());
         context.close();
     }
 }
