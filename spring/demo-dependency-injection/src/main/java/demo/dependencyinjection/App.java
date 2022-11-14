@@ -8,15 +8,19 @@ public class App
 {
     public static void main( String[] args )
     {
+        // Setting up the spring context aka, the dependency injection container
         var context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+        // Getting beans from the spring container (basically a bean is an object managed by the spring container)
         var mmaCoach = context.getBean("mma", ICoach.class);
         var crickCoach = (CricketCoach) context.getBean("cricket", ICoach.class);
 
         System.out.println(mmaCoach.getDailyRoutine());
         System.out.println("");
+
         System.out.println(String.format("Mma coach: %s", mmaCoach.getDailyFortune()));
         System.out.println(String.format("Cricket coach: %s", crickCoach.getDailyFortune()));
+
         System.out.println("");
         System.out.println(String.format("Cricket coach's team: %s, and email addr: %s", crickCoach.getTeam(), crickCoach.getEmailAddress()));
         
