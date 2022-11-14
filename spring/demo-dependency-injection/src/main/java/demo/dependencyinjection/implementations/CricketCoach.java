@@ -7,8 +7,13 @@ public class CricketCoach implements ICoach {
 
     private IFortuneService fortuneService;
 
+    public CricketCoach() {
+        System.out.println("Constructing Cricket Coach in the no-args constructor");
+    }
+
     public void setFortuneService(IFortuneService fortuneService) {
         this.fortuneService = fortuneService;
+        System.out.println("The fortune service dependency was injected via the setter.");
     }
 
     @Override
