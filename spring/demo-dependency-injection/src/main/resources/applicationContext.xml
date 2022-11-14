@@ -23,6 +23,8 @@
 
     <bean id="cricket"
           class="demo.dependencyinjection.implementations.CricketCoach">
-      <property name="fortuneService" ref="myFortuneService"></property>
+      <property name="fortuneService" ref="myFortuneService"/>
+      <property name="emailAddress" value="thebestcoach@sunrisers.com"/>
+      <property name="team" value="The SunRisers"/>
     </bean>
 </beans>

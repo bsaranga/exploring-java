@@ -7,6 +7,33 @@ public class CricketCoach implements ICoach {
 
     private IFortuneService fortuneService;
 
+    // Email Address Property
+    private String emailAddress;
+    
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        System.out.println(String.format("Injected email: %s", emailAddress));
+        this.emailAddress = emailAddress;
+    }
+    //--------------------
+
+    // Team Property
+    private String team;
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        System.out.println(String.format("Injected team: %s", team));
+        this.team = team;
+    }
+    //--------------------
+
+    // Constructor
     public CricketCoach() {
         System.out.println("Constructing Cricket Coach in the no-args constructor");
     }
