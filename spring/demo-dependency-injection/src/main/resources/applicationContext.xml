@@ -13,8 +13,10 @@
           class="demo.dependencyinjection.services.HappyFortuneService">
     </bean>
 
+    <!-- PROTOTYPE BEAN -->
     <bean id="jiujitsu" 
-          class="demo.dependencyinjection.implementations.JiuJitsuCoach">
+          class="demo.dependencyinjection.implementations.JiuJitsuCoach"
+          scope="prototype">
       <constructor-arg ref="myFortuneService"/>
     </bean>
 
@@ -28,5 +30,11 @@
       <property name="fortuneService" ref="myFortuneService"/>
       <property name="emailAddress" value="${default.coachEmail}"/>
       <property name="team" value="${default.coachTeam}"/>
+    </bean>
+
+    <!-- SINGLETON BEAN -->
+    <bean id="karate" 
+          class="demo.dependencyinjection.implementations.KarateCoach" 
+          scope="singleton">
     </bean>
 </beans>

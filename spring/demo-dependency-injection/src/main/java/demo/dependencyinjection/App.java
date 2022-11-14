@@ -20,6 +20,20 @@ public class App
         System.out.println("");
         System.out.println(String.format("Cricket coach's team: %s, and email addr: %s", crickCoach.getTeam(), crickCoach.getEmailAddress()));
         
+        // Scope demo (Prototype)
+        var jiujistuCoachA = context.getBean("jiujitsu", ICoach.class);
+        var jiujistuCoachB = context.getBean("jiujitsu", ICoach.class);
+
+        System.out.println(jiujistuCoachA.hashCode());
+        System.out.println(jiujistuCoachB.hashCode()); //The hashCode of this object is different from the above object. This means a new object was made.
+        
+        System.out.println("");
+        // Scope demo (Singleton)
+        var karateCoachA = context.getBean("karate", ICoach.class);
+        var karateCoachB = context.getBean("karate", ICoach.class);
+
+        System.out.println(karateCoachA.hashCode());
+        System.out.println(karateCoachB.hashCode()); // The hashCode is the same, which means it's the same object that the spring context gives. Hence singleton lifetime.
         context.close();
     }
 }
