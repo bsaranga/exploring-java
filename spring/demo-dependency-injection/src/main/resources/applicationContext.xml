@@ -35,6 +35,8 @@
     <!-- SINGLETON BEAN -->
     <bean id="karate" 
           class="demo.dependencyinjection.implementations.KarateCoach" 
-          scope="singleton">
+          scope="singleton"
+          init-method="startupMethod"
+          destroy-method="destroyMethod">
     </bean>
 </beans>
