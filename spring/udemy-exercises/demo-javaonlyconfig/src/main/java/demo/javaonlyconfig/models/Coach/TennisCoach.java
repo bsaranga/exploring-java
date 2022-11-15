@@ -1,6 +1,7 @@
 package demo.javaonlyconfig.models.Coach;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import demo.javaonlyconfig.services.fortuneService.IFortuneService;
@@ -9,6 +10,7 @@ import demo.javaonlyconfig.services.fortuneService.IFortuneService;
 public class TennisCoach implements ICoach {
 
     @Autowired
+    @Qualifier("randomService")
     private IFortuneService fortuneService;
 
     @Override
