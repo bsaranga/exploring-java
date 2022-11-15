@@ -1,6 +1,7 @@
 package demo.javaonlyconfigwithnocomponentscan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 
 import demo.javaonlyconfigwithnocomponentscan.models.Coach.ICoach;
@@ -9,6 +10,7 @@ import demo.javaonlyconfigwithnocomponentscan.services.fortuneService.FortuneSer
 import demo.javaonlyconfigwithnocomponentscan.services.fortuneService.IFortuneService;
 
 @Configuration
+@PropertySource("classpath:app.properties")
 public class AppConfig {
     
     @Bean
