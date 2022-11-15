@@ -1,6 +1,7 @@
 package demo.annotations.model.Coach;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import demo.annotations.services.IFortuneService;
@@ -11,7 +12,7 @@ public class KungFuCoach implements ICoach {
     private IFortuneService fortuneService;
 
     @Autowired // Example of method injection
-    public void setupDependencies(IFortuneService fortuneService) {
+    public void setupDependencies(@Qualifier("randomFortune") IFortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 

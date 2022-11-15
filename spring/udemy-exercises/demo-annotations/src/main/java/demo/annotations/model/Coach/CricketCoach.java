@@ -1,6 +1,7 @@
 package demo.annotations.model.Coach;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import demo.annotations.services.IFortuneService;
@@ -11,7 +12,7 @@ public class CricketCoach implements ICoach {
     private IFortuneService fortuneService;
     
     @Autowired
-    public void setFortuneService(IFortuneService fortuneService) {
+    public void setFortuneService(@Qualifier("goldFortune") IFortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 

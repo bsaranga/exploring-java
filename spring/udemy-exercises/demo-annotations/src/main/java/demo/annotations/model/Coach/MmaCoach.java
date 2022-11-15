@@ -1,6 +1,7 @@
 package demo.annotations.model.Coach;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import demo.annotations.services.IFortuneService;
@@ -9,6 +10,7 @@ import demo.annotations.services.IFortuneService;
 public class MmaCoach implements ICoach {
 
     @Autowired // example of field injection
+    @Qualifier("randomFortune")
     private IFortuneService fortuneService;
 
     @Override
