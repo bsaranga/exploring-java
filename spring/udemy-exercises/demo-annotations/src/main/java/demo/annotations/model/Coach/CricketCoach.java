@@ -1,5 +1,8 @@
 package demo.annotations.model.Coach;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -24,6 +27,16 @@ public class CricketCoach implements ICoach {
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    @PostConstruct
+    public void PostConstructMethod() {
+        System.out.println("\n<<<Cricket coach has been constructed>>>\n");
+    }
+
+    @PreDestroy
+    public void PreDestroyMethod() {
+        System.out.println("\n<<<Cricket coach has been destroyed>>>\n");
     }
     
 }
