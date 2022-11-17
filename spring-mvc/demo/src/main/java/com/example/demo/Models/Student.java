@@ -7,9 +7,11 @@ import javax.validation.constraints.Size;
 
 public class Student {
     
+    @NotNull(message = "First name shouldn't be empty.")
+    @Size(min = 2, message = "First name must be atleast 2 characters.")
     private String firstName;
     @NotNull(message = "is required")
-    @Size(min = 1, message = "is required")
+    @Size(min = 2, message = "Second name must be atleast 2 characters.")
     private String lastName;
     private String country;
     private String favoriteLanguage;

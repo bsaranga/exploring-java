@@ -26,7 +26,7 @@ public class StudentController {
     public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
         
         if (bindingResult.hasErrors()) return "student-form";
-        
+
         System.out.println(String.format("FirstName: %s \nLastName: %s", student.getFirstName(), student.getLastName()));
         return "student-confirmation";
     }

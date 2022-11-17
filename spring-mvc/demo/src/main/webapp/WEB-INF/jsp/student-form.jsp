@@ -6,10 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Form</title>
+    <style>
+        .error {
+            color: red
+        }
+    </style>
 </head>
 <body>
     <form:form action="processForm" modelAttribute="student">
         First Name: <form:input path="firstName" />
+        <form:errors path="firstName" cssClass="error" />
         Last Name(*): <form:input path="lastName" />
         <form:errors path="lastName" cssClass="error" />
         <br>
