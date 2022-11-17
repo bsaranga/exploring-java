@@ -37,11 +37,26 @@ public class ConferenceSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+        // In memory authentication
         /* auth.inMemoryAuthentication()
             .withUser("saranga")
             .password(passwordEncoder().encode("root"))
             .roles("USER"); */
-        auth.jdbcAuthentication().dataSource(dataSource);
+
+        // database authentication
+        /* auth.jdbcAuthentication().dataSource(dataSource); */
+
+        // ldap authentication
+        auth.ldapAuthentication()
+            .userDnPatterns("uid={0},ou=people")
+            .groupSearchBase("ou=groups")
+            .contextSource()
+            .url("ldap://localhost:8389/dc=pluralsight,dc=com")
+            .and()
+            .passwordCompare()
+            .passwordEncoder(passwordEncoder())
+            .passwordAttribute("userPassword");
     }
     
     @Bean

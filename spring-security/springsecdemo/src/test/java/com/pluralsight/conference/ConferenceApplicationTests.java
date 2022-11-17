@@ -1,4 +1,4 @@
-package com.pluralsight.conference;
+/* package com.pluralsight.conference;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,3 +18,4 @@ public class ConferenceApplicationTests {
         System.out.println("---");
     }
 }
+ */
