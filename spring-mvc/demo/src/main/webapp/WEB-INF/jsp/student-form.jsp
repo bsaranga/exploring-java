@@ -10,7 +10,8 @@
 <body>
     <form:form action="processForm" modelAttribute="student">
         First Name: <form:input path="firstName" />
-        Last Name: <form:input path="lastName" />
+        Last Name(*): <form:input path="lastName" />
+        <form:errors path="lastName" cssClass="error" />
         <br>
         Country:
         <form:select path="country">
