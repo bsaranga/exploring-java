@@ -17,5 +17,10 @@
         <input type="text" name="studentName" placeholder="Type the shout message..." />
         <input type="submit" />
     </form>
+    <br>
+    <form action="processFormVersionThree" method="GET">
+        <input type="text" name="studentName" placeholder="Type the shout message..." />
+        <input type="submit" />
+    </form>
 </body>
 </html>
