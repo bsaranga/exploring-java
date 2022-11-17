@@ -26,8 +26,6 @@
       }
     }
   </style>
-  <!-- Custom styles for this template -->
-  <link href="navbar-top.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">

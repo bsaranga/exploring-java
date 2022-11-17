@@ -1,13 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Registration</title>
+    <title>Login</title>
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -37,18 +38,18 @@
 
     <div class="container">
         <div>
-            <h1>Registration</h1>
+            <h1>Login</h1>
         </div>
 
-        <form:form modelAttribute="registration">
+        <div>
+            <c:if test="${not empty param.error}">Invalid username and password</c:if>
+        </div>
+
+        <form:form action="perform_login" method="post">
             <form:errors path="*" cssClass="errorblock" element="div" />
-            <label for="textinput1">
-                Enter Registration:
-            </label>
-            <form:input path="name" cssErrorClass="error" />
-            <form:errors path="name" cssClass="error" />
-            <br/>
-            <input type="submit" class="btn btn-lg btn-primary" role="button" value="Add Registration"/>
+            <div><label>Username: <input type="text" name="username" /></label></div>
+            <div><label>Password: <input type="password" name="password" /></label></div>
+            <input type="submit" class="btn btn-lg btn-primary" role="button" value="Login" />
         </form:form>
 
         <div class="control-group">
