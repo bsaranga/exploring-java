@@ -31,6 +31,9 @@
         Windows<form:checkbox path="operatingSystems" value="Windows"/>  
         Linux<form:checkbox path="operatingSystems" value="Linux"/>  
         Mac OS<form:checkbox path="operatingSystems" value="Mac OS"/>
+        <br>
+        Free Passes: <form:input path="freePasses" />
+        <form:errors path="freePasses" cssClass="error" />
         <input type="submit" value="Submit" />
     </form:form>
 </body>

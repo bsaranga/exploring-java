@@ -2,20 +2,27 @@ package com.example.demo.Models;
 
 import java.util.LinkedHashMap;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Student {
     
-    @NotNull(message = "First name shouldn't be empty.")
+    @NotNull(message = "First name shouldn\'t be empty.")
     @Size(min = 2, message = "First name must be atleast 2 characters.")
     private String firstName;
-    @NotNull(message = "is required")
+    @NotNull(message = "Last name shouldn\'t be empty.")
     @Size(min = 2, message = "Second name must be atleast 2 characters.")
     private String lastName;
+
     private String country;
     private String favoriteLanguage;
     private String[] operatingSystems;
+
+    @Min(value = 0, message = "must be greater than or equal to zero.")
+    @Max(value = 10, message = "must be less than or equal to 10.")
+    private int freePasses;
 
     private LinkedHashMap<String, String> countryOptions;
     private LinkedHashMap<String, String> favoriteLanguageOptions;
@@ -80,5 +87,13 @@ public class Student {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getFreePasses() {
+        return freePasses;
+    }
+
+    public void setFreePasses(int freePasses) {
+        this.freePasses = freePasses;
     }
 }
