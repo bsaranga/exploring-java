@@ -29,5 +29,8 @@
     <div>
         <p>Free passes remaining: ${student.freePasses}</p>
     </div>
+    <div>
+        <p>Postal Code: ${student.postalCode}</p>
+    </div>
 </body>
 </html>
