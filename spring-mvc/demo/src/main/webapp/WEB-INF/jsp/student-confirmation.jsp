@@ -13,5 +13,8 @@
     <div>
         <p>The student's country is: <strong>${student.country}</strong></p>
     </div>
+    <div>
+        <p>The student's favorite programming language is: <strong>${student.favoriteLanguage}</strong></p>
+    </div>
 </body>
 </html>
