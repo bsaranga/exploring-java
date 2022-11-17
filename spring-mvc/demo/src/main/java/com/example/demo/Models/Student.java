@@ -21,9 +21,10 @@ public class Student {
     private String favoriteLanguage;
     private String[] operatingSystems;
 
+    @NotNull(message = "is required.")
     @Min(value = 0, message = "must be greater than or equal to zero.")
     @Max(value = 10, message = "must be less than or equal to 10.")
-    private int freePasses;
+    private Integer freePasses;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message="only 5 chars or digits allowed")
     private String postalCode;
@@ -93,11 +94,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public int getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(int freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
     }
 
