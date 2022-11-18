@@ -16,7 +16,7 @@ import com.cool.myapp.entities.Employee;
 import com.cool.myapp.services.IEmployeeService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/apiv2")
 public class EmployeeRestController {
     
     private IEmployeeService employeeService;
