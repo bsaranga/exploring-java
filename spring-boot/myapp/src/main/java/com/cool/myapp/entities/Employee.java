@@ -42,6 +42,10 @@ public class Employee {
         this.id = 0;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getFirst_name() {
         return first_name;
     }

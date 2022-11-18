@@ -2,6 +2,7 @@ package com.cool.myapp.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.cool.myapp.entities.Employee;
@@ -12,8 +13,9 @@ public class EmployeeService implements IEmployeeService{
 
     private IEmployeeRepository employeeRepository;
 
+    // The qualifer tag can be used to switch the Repository implementation
     @Autowired
-    public EmployeeService(IEmployeeRepository employeeRepository) {
+    public EmployeeService(@Qualifier("employeeJPARepository") IEmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
