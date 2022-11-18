@@ -15,7 +15,7 @@ public class Employee {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     @Column(name = "first_name")
     private String first_name;
     
@@ -36,6 +36,10 @@ public class Employee {
 
     public int getId() {
         return id;
+    }
+
+    public void setIdToZero() {
+        this.id = 0;
     }
 
     public String getFirst_name() {
