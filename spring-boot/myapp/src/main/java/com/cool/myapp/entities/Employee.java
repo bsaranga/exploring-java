@@ -25,6 +25,9 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
+    public Employee() {
+    }
+
     public Employee(String first_name, String last_name, String email) {
         this.first_name = first_name;
         this.last_name = last_name;

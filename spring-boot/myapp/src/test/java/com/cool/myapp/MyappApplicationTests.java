@@ -19,7 +19,7 @@ class MyappApplicationTests {
 	@Test
 	void verifyConnectedDatabase() throws SQLException {
 		var connectionString = dataSource.getConnection().getMetaData().getURL();
-		var expectedConnectionString = "jdbc:postgresql://localhost:5432/customer";
+		var expectedConnectionString = "jdbc:postgresql://localhost:5432/employee";
 
 		assertEquals(expectedConnectionString, connectionString);
 	}
