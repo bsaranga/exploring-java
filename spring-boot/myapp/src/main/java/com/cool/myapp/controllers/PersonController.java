@@ -2,6 +2,7 @@ package com.cool.myapp.controllers;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,14 @@ import com.cool.myapp.entities.Person;
 
 @Controller
 public class PersonController {
+
+    @Value("${info.app.name}")
+    private String appName;
     
     @GetMapping
     String getPeople(Model model) {
         
-        model.addAttribute("message", "This is from the model...");
+        model.addAttribute("appName", appName);
 
         model.addAttribute("people", Arrays.asList(
             new Person("John", 22),
