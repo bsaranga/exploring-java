@@ -3,6 +3,7 @@ package com.cool.myapp.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ public class EmployeeRestController {
     private IEmployeeService employeeService;
     
     @Autowired
-    public EmployeeRestController(IEmployeeService employeeService) {
+    public EmployeeRestController(@Qualifier("springJPAEmployeeService") IEmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
