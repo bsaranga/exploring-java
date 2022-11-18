@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cool.myapp.entities.Employee;
-import com.cool.myapp.repositories.IEmployeeRepository;
+import com.cool.myapp.services.IEmployeeService;
 
 @RestController
 @RequestMapping("/api")
 public class EmployeeRestController {
     
-    private IEmployeeRepository employeeRepository;
+    private IEmployeeService employeeService;
     
     @Autowired
-    public EmployeeRestController(IEmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
+    public EmployeeRestController(IEmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
-        return this.employeeRepository.findAll();
+        return this.employeeService.findAll();
     }
 }

@@ -1,10 +1,9 @@
-package com.cool.myapp.repositories;
+package com.cool.myapp.services;
 
 import java.util.List;
-
 import com.cool.myapp.entities.Employee;
 
-public interface IEmployeeRepository {
+public interface IEmployeeService {
     
     public List<Employee> findAll();
 
@@ -12,5 +11,5 @@ public interface IEmployeeRepository {
 
     public void save(Employee employee);
 
-    public void deleteById(int employeeId);
+    public void deleteById(int employeeId);  
 }
