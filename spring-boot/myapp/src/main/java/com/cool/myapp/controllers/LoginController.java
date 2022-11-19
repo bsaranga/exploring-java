@@ -29,4 +29,10 @@ public class LoginController {
         model.addAttribute("loginDisabled", true);
         return "login";
     }
+
+    @GetMapping("/login-locked")
+    public String loginLocked(Model model) {
+        model.addAttribute("loginLocked", true);
+        return "login";
+    }
 }
