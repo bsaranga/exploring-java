@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
@@ -51,15 +52,17 @@ public class SecurityConfiguration {
         
         List<UserDetails> users = new ArrayList<>();
 
-        UserDetails adminUser = User.withDefaultPasswordEncoder()
+        UserDetails adminUser = User.builder()
                                     .username("admin")
                                     .password("admin")
+                                    .passwordEncoder(pass -> passwordEncoder().encode(pass))
                                     .roles("ADMIN", "COM")
                                     .build();
 
-        UserDetails guestUser = User.withDefaultPasswordEncoder()
+        UserDetails guestUser = User.builder()
                                     .username("guest")
                                     .password("guest")
+                                    .passwordEncoder(pass -> passwordEncoder().encode(pass))
                                     .roles("GUEST", "COM")
                                     .build();
         users.add(adminUser);
@@ -68,7 +71,8 @@ public class SecurityConfiguration {
         return new InMemoryUserDetailsManager(users);
     }
 
-    private String getEncodedPassword(String password) {
-        return new BCryptPasswordEncoder().encode(password);
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
