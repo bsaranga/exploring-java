@@ -3,6 +3,7 @@ package com.cool.myapp.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cool.myapp.auth.dtos.UserDto;
+import com.cool.myapp.auth.events.UserRegistrationEvent;
 import com.cool.myapp.auth.services.interfaces.IUserService;
 
 @Controller
@@ -18,6 +20,9 @@ public class RegistrationController {
     
     @Autowired
     private IUserService defaultUserService;
+
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
     @GetMapping("/adduser")
     public String register(Model model) {
@@ -31,7 +36,9 @@ public class RegistrationController {
             return "add-user";
         }
 
-        defaultUserService.createUser(userDto);
-        return "redirect:adduser?success";
+        var applicationUser = defaultUserService.createUser(userDto);
+        eventPublisher.publishEvent(new UserRegistrationEvent(applicationUser));
+        
+        return "redirect:adduser?validate";
     }
 }

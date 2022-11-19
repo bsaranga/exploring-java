@@ -34,7 +34,7 @@ public class SecurityConfiguration {
 
         http
             .authorizeRequests()
-            .antMatchers("/", "/login", "/login-error", "/adduser").permitAll()
+            .antMatchers("/", "/login", "/login-error", "/login-verified", "/login-disabled", "/verify/email", "/adduser").permitAll()
             .antMatchers("/admin").hasRole("ADMIN")
             .antMatchers("/common").hasRole("COM")
             .antMatchers("/guest").hasRole("GUEST")

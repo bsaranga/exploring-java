@@ -25,6 +25,11 @@
                             Registration completed. You can now <a href="/login" th:href="@{/login}">login</a>
                         </div>
                     </div>
+                    <div th:if="${param.validate}" >
+                        <div class="alert alert-info">
+                            Verification email has been sent. Please check inbox.
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="inputFirstname">Firstname</label>
                         <input type="text" th:field="*{firstName}" class="form-control" id="inputFirstname" placeholder="Enter First Name" autofocus>

@@ -7,4 +7,5 @@ public interface IUserService {
     
     ApplicationUser createUser(UserDto userDto);
     ApplicationUser findByUserName(String userName);
+    ApplicationUser save(ApplicationUser user);
 }

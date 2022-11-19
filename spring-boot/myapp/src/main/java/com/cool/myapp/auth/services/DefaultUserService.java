@@ -40,5 +40,10 @@ public class DefaultUserService implements IUserService {
         
         return userRepository.findByUserName(userName);
     }
+
+    @Override
+    public ApplicationUser save(ApplicationUser user) {
+        return userRepository.save(user);
+    }
     
 }
