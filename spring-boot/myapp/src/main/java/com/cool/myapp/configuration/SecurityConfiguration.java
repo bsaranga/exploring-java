@@ -1,16 +1,14 @@
 package com.cool.myapp.configuration;
 
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
@@ -22,7 +20,7 @@ public class SecurityConfiguration {
     private AccessDeniedHandler customAccessDeniedHandler;
 
     @Autowired
-    private DataSource dataSource;
+    private UserDetailsService userDetailsService;
     
     @Bean
     public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
@@ -47,37 +45,8 @@ public class SecurityConfiguration {
         return (web) -> web.ignoring().antMatchers("/css/**");
     }
 
-    /* @Bean
-    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-        
-        List<UserDetails> users = new ArrayList<>();
-
-        UserDetails adminUser = User.builder()
-                                    .username("admin")
-                                    .password("admin")
-                                    .passwordEncoder(pass -> passwordEncoder().encode(pass))
-                                    .roles("ADMIN", "COM")
-                                    .build();
-
-        UserDetails guestUser = User.builder()
-                                    .username("guest")
-                                    .password("guest")
-                                    .passwordEncoder(pass -> passwordEncoder().encode(pass))
-                                    .roles("GUEST", "COM")
-                                    .build();
-        users.add(adminUser);
-        users.add(guestUser);
-
-        return new InMemoryUserDetailsManager(users);
-    } */
-
-    @Bean
-    public UserDetailsManager users() {
-        return new JdbcUserDetailsManager(dataSource);
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    @Autowired
+    void configure(AuthenticationManagerBuilder builder) throws Exception {
+        builder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 }
