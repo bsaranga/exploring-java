@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root</title>
+</head>
+<body>
+    <h1>Jellow World</h1>
+    <a th:href="@{/login}">Login</a>
+    <a th:href="@{/people}">Show people</a>
+    <br>
+    <a th:href="@{/admin}">Admin</a>
+    <a th:href="@{/guest}">Guest</a>
+    <a th:href="@{/common}">Common</a>
+    <br>
+    <br>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

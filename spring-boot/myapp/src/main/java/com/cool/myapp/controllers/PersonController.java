@@ -1,5 +1,6 @@
 package com.cool.myapp.controllers;
 
+import java.security.Principal;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +16,8 @@ public class PersonController {
     @Value("${info.app.name}")
     private String appName;
     
-    @GetMapping
-    String getPeople(Model model) {
+    @GetMapping("/people")
+    String getPeople(Model model, Principal principal) {
         
         model.addAttribute("appName", appName);
 
