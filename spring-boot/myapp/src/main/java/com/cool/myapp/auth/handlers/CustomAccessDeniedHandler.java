@@ -1,4 +1,4 @@
-package com.cool.myapp.handlers;
+package com.cool.myapp.auth.handlers;
 
 import java.io.IOException;
 
