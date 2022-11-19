@@ -1,19 +1,16 @@
 package com.cool.myapp.configuration;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
@@ -23,6 +20,9 @@ public class SecurityConfiguration {
 
     @Autowired
     private AccessDeniedHandler customAccessDeniedHandler;
+
+    @Autowired
+    private DataSource dataSource;
     
     @Bean
     public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
@@ -47,7 +47,7 @@ public class SecurityConfiguration {
         return (web) -> web.ignoring().antMatchers("/css/**");
     }
 
-    @Bean
+    /* @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         
         List<UserDetails> users = new ArrayList<>();
@@ -69,6 +69,11 @@ public class SecurityConfiguration {
         users.add(guestUser);
 
         return new InMemoryUserDetailsManager(users);
+    } */
+
+    @Bean
+    public UserDetailsManager users() {
+        return new JdbcUserDetailsManager(dataSource);
     }
 
     @Bean
