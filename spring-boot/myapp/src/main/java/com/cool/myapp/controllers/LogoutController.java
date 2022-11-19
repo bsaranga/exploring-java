@@ -8,15 +8,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class LogoutController {
     
     @PostMapping("logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
+    public RedirectView logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null)
             new SecurityContextLogoutHandler().logout(request, response, authentication);
-        return "redirect:/";
+        return new RedirectView("/");
     }
 }
