@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,9 @@
 <body>
     <h1>Jellow World</h1>
     <a th:href="@{/login}">Login</a>
+    <br>
+    <a th:href="@{/adduser}">Register</a>
+    <br>
     <a th:href="@{/people}">Show people</a>
     <br>
     <a th:href="@{/admin}">Admin</a>

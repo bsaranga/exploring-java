@@ -8,20 +8,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.cool.myapp.auth.entities.ApplicationUser;
-import com.cool.myapp.auth.repo.ApplicationUserRepository;
+import com.cool.myapp.auth.services.interfaces.IUserService;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private ApplicationUserRepository applicationUserRepository;
+    private IUserService defaultUserService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
         System.out.println("LOADING USER BY USERNAME");
 
-        ApplicationUser applicationUser = applicationUserRepository.findByUserName(userName);
+        ApplicationUser applicationUser = defaultUserService.findByUserName(userName);
         
         if (applicationUser == null) throw new UsernameNotFoundException(String.format("No user with username %s exists in the system", userName));
         
