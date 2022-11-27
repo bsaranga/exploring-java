@@ -22,4 +22,8 @@ public abstract class Plan {
         return this.getFinalRate() * period;
     }
 
+    public void getInfo() {
+        
+    }
+
 }
